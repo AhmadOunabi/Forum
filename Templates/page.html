@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Questions</h1>
+    {% for question in questions %}
+        <ol>
+            <li>Titel:{{question.title}}</li>
+            <li>Author:{{question.author}}</li>
+            <li>Question:{{question.question}}</li>
+        </ol>
+        
+        
+    {% endfor %}
+    <h1>ANSWERS</h1>
+    {% for answer in answers%}
+        <ol>
+            <li>Author:{{answer.author}}</li>
+            <li>Answer:{{answer.answer}}</li>
+        </ol>
+    {%endfor%}
+</body>
+</html>
