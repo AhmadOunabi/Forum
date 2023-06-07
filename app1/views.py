@@ -1,33 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from app1.models import Question , Answer
 from app1.forms import QuestionForm,AnswerForm
 # Create your views here.
 def index(request):
     questions_list= Question.objects.all()
-    answers_list= Answer.objects.all()
-    my_dict= {"answers":answers_list,"questions":questions_list}
-    return render(request,'page.html',context=my_dict)
+    return render(request,'page.html',{"questions":questions_list})
 
-def add(request):
+def add_question(request):
     if request.method=="POST":
         QuestionForm(request.POST)
-        AnswerForm(request.POST)
-        if QuestionForm(request.POST).is_valid() and AnswerForm(request.POST).is_valid():
+        if QuestionForm(request.POST).is_valid():
             QuestionForm(request.POST).save()
-            AnswerForm(request.POST).save()
     else:
         QuestionForm()
-        AnswerForm()
-    question_dict = {'question':QuestionForm, 'answer':AnswerForm}
-    return render(request,'add.html',question_dict)
+    question_dict = {'question':QuestionForm}
+    return render(request,'add_question.html',question_dict)
 
-# def add_answer(request):
-#     if request.method=="POST":
-#         AnswerForm(request.POST)
-#         if AnswerForm(request.POST).is_valid():
-#             QuestionForm(request.POST).save()
-#     else:
-#         AnswerForm()
-#     answer_dict={'answer':AnswerForm}
-#     return render(request,'add.html',answer_dict)
+def details(request,id):
+    question=Question.objects.get(id=id)
+    answers= Answer.objects.filter(question=question)
+    return render(request,'details.html',{'question':question,'answers':answers})

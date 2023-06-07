@@ -14,34 +14,22 @@
             <div class="questions">
                 {% for question in questions %}
                 <div class="question">
-                    <ol>
-                        <li>
+                    <div>
+                        <div class="p-4">
                             <p>Titel:{{question.title}}</p>
                             <p>Author:{{question.author}}</p>
-                            <p>Question:{{question.question}}</p>
-                        </li>
-                    </ol>
+                            <a href="/question/{{question.id}}">Question:{{question.question}}</a>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
+
         <div class="col-lg-6">
-            <h1>Answers</h1>
-            <div class="answers">
-                {% for answer in answers%}
-                <div class="answer">
-                    <ol>
-                        <li>
-                            <p>Author:{{answer.author}}</p>
-                            <p>Answer:{{answer.answer}}</p>
-                        </li>
-                    </ol>
-                </div>
-                
-                {%endfor%}
-            </div>
+            <a href="/add_question">Add New Question</a>
         </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>

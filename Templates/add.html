@@ -14,10 +14,15 @@
 <body class="m-5">
     <form method="post">
         {% csrf_token %}
-         <div class="m-3">{{question}}</div>
-         <div class="m-3">{{answer}}</div>
-        
-        <input type="submit" value="Save">
+        <div class="row mt-5 px-3 pb-3 border-bottom">
+            <div class="col-lg-6">
+                <div class=" question m-3">{{question}}</div>
+            </div>
+            <div class="col-lg-6">
+                <div class="m-3 mt-5">{{answer}}</div>
+            </div>
+        </div>
+        <input class="save mt-3" type="submit" value="Save">
     </form>
     
 </body>
