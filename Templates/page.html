@@ -1,25 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Page</title>
+    <link rel="stylesheet" href={% static "style.css" %}>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Questions</h1>
-    {% for question in questions %}
-        <ol>
-            <li>Titel:{{question.title}}</li>
-            <li>Author:{{question.author}}</li>
-            <li>Question:{{question.question}}</li>
-        </ol>
-        
-        
-    {% endfor %}
-    <h1>ANSWERS</h1>
-    {% for answer in answers%}
-        <ol>
-            <li>Author:{{answer.author}}</li>
-            <li>Answer:{{answer.answer}}</li>
-        </ol>
-    {%endfor%}
+    <div class="row mt-5 px-3 pb-3 border-bottom">
+        <div class="col-lg-6">
+            <h1>Questions</h1>
+            <div class="questions">
+                {% for question in questions %}
+                <div class="question">
+                    <ol>
+                        <li>
+                            <p>Titel:{{question.title}}</p>
+                            <p>Author:{{question.author}}</p>
+                            <p>Question:{{question.question}}</p>
+                        </li>
+                    </ol>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h1>Answers</h1>
+            <div class="answers">
+                {% for answer in answers%}
+                <div class="answer">
+                    <ol>
+                        <li>
+                            <p>Author:{{answer.author}}</p>
+                            <p>Answer:{{answer.answer}}</p>
+                        </li>
+                    </ol>
+                </div>
+                
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+    </script>
 </body>
 </html>

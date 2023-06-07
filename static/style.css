@@ -1,0 +1,36 @@
+h1 {
+    color: brown;
+}
+
+div.questions{
+
+    
+    border-radius: 20px;
+    background-color: #dddada;
+
+}
+
+div.question{
+    background-color: #913131;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin-top: 10px;
+
+}
+
+
+div.answers{
+
+    
+    border-radius: 20px;
+    background-color: #dddada;
+
+}
+
+div.answer{
+    background-color: #12b000;
+    border-radius: 20px;
+    border: 1px solid black;
+    margin-top: 10px;
+
+}

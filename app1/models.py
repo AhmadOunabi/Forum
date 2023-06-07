@@ -7,9 +7,13 @@ class Question(models.Model):
     author = models.CharField(max_length=264)
     question=models.TextField()
     createDate = models.DateField()
+    def __str__(self):
+        return self.title
     
 
 class Answer(models.Model):
     author=models.CharField(max_length=264)
     answer=models.CharField(max_length=264)
     createDate=models.DateField()
+    def __str__(self):
+        return self.author
