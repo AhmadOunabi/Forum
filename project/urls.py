@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v1.index),
     path('add',v1.add),
+    #path('add',v1.add_answer),
 ]
